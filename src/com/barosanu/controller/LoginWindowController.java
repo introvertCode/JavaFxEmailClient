@@ -18,7 +18,7 @@ public class LoginWindowController extends BaseController {
     private TextField passwordField;
 
     public LoginWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
-        super(emailManager, viewFactory, fxmlName);
+        super(emailManager, viewFactory, fxmlName); //wywołuje konstruktor klasy z której dziediczymy
     }
 
     @FXML
