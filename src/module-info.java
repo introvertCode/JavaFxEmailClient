@@ -4,6 +4,8 @@ module FirstJava11 {
     requires javafx.graphics;
     requires javafx.web;
 
+
+
     opens com.barosanu;
     opens com.barosanu.view;
     opens com.barosanu.controller;
