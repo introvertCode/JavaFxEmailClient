@@ -4,6 +4,7 @@ import com.barosanu.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginWindowController extends BaseController {
 
@@ -23,7 +24,10 @@ public class LoginWindowController extends BaseController {
 
     @FXML
     void loginButtonAction() {
-        System.out.println("clicked");
+        System.out.println("clicked login button");
+        viewFactory.showMainWindow();
+        Stage stage = (Stage) errorLabel.getScene().getWindow();//w taki sposób dostajemy stage- za pomocą get wykonanym na jakimś polu z tego okna.
+        viewFactory.closeStage(stage);// zamyka okno logowania
 
     }
 

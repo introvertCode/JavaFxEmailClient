@@ -4,6 +4,7 @@ import com.barosanu.EmailManager;
 import com.barosanu.controller.BaseController;
 import com.barosanu.controller.LoginWindowController;
 import com.barosanu.controller.MainWindowController;
+import com.barosanu.controller.OptionsWindowController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,6 +22,26 @@ public class ViewFactory {
         this.emailManager = emailManager;
     }
 
+    //View options handling
+    private ColorTheme colorTheme = ColorTheme.DEFAULT;
+    private FontSize fontSize = FontSize.MEDIUM;
+
+    public ColorTheme getColorTheme() {
+        return colorTheme;
+    }
+
+    public void setColorTheme(ColorTheme colorTheme) {
+        this.colorTheme = colorTheme;
+    }
+
+    public FontSize getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize(FontSize fontSize) {
+        this.fontSize = fontSize;
+    }
+
     public void showLoginWindow() {
         BaseController controller = new LoginWindowController(emailManager, this, "LoginWindow.fxml");
         initializeStage(controller);
@@ -31,6 +52,13 @@ public class ViewFactory {
         BaseController controller = new MainWindowController(emailManager, this, "MainWindow.fxml");
         initializeStage(controller);
         System.out.println("show Main Window");
+
+    }
+
+    public void showOptionsWindow(){
+        BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
+        initializeStage(controller);
+        System.out.println("show Option Window");
 
     }
 
@@ -50,5 +78,9 @@ public class ViewFactory {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void closeStage(Stage stageToClose){
+        stageToClose.close();//zamyka okno
     }
 }
